@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Livestock Marketing System</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* General Colors */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f6f0;
+    }
+
+    .text-sage {
+      color: #8fbc8f; /* Sage green */
+    }
+
+    .bg-brown {
+      background-color: #8b4513; /* Dark brown */
+    }
+
+    .bg-light-brown {
+      background-color: #deb887; /* Light brown */
+    }
+
+    .text-light {
+      color: #fdfdfd;
+    }
+
+    /* Table Styling */
+    .table-striped > tbody > tr:nth-of-type(odd) {
+      background-color: #f0e6d3;
+    }
+
+    .border-light-brown {
+      border-color: #deb887;
+    }
+
+    /* Button Styling */
+    .btn-dark-brown {
+      background-color: #8b4513;
+      color: white;
+      border: none;
+    }
+
+    .btn-dark-brown:hover {
+      background-color: #5a2e1d;
+    }
+
+    /* Form Styling */
+    form {
+      background-color: #fdfbf7;
+      border: 1px solid #deb887;
+      padding: 15px;
+      border-radius: 5px;
+    }
+
+    input, textarea {
+      border: 1px solid #deb887;
+      width: 100%;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #8fbc8f;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header Section -->
+<header class="bg-brown text-light p-3 text-center">
+  <h1>About Us</h1>
+  <p>Your reliable marketplace for livestock trade and exchange</p>
+</header>
+
+<div class="container my-5">
+  
+  <!-- Company Backstory -->
+  <section class="mb-5">
+    <h2 class="text-sage">Our Story</h2>
+    <p>
+      The Livestock Marketing System was created due to need to ease the process of livestock buying/selling and make it accessible to everyone. We believe in connecting farmers, buyers, and other stakeholders, enabling them to reach a broader audience and push for transparency within the marketplace. Through this platform, we’re committed to enhancing the agricultural industry with the latest technology.
+    </p>
+  </section>
+
+  <!-- Mission, Vision, Values -->
+  <section class="mb-5">
+    <h2 class="text-sage">Our Mission, Vision, and Values</h2>
+    <ul class="list-unstyled">
+      <li><strong>Mission:</strong> To revolutionize livestock trading by providing a digital platform that enhances accessibility, trust, and transparency.</li>
+      <br>
+      <li><strong>Vision:</strong> A world where livestock transactions are seamless, transparent, and beneficial for all stakeholders involved.</li>
+      <br>
+      <li><strong>Values:</strong> Integrity, Innovation, Sustainability, Customer Focus</li>
+    </ul>
+  </section>
+
+  <!-- Team Members -->
+  <section class="mb-5">
+    <h2 class="text-sage">Meet Our Team</h2>
+    <table class="table table-striped border-light-brown">
+      <thead class="bg-light-brown text-white">
+        <tr>
+          <th>Name</th>
+          <th>Role</th>
+          <th>Experience</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Faustina Bukete</td>
+          <td>CEO and Founder</td>
+          <td>15 years in agricultural technology and e-commerce</td>
+        </tr>
+        <tr>
+          <td>Steffanus Steven</td>
+          <td>CTO</td>
+          <td>12 years in software development and data security</td>
+        </tr>
+        <tr>
+          <td>Matti Ndeshitila</td>
+          <td>Marketing Director</td>
+          <td>10 years in digital marketing and brand development</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="mb-5">
+    <h2 class="text-sage">Get in Touch</h2>
+    <p>We would love to hear from you! Whether you have questions or feedback, feel free to reach out to us.</p>
+    <form action="#" method="post">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name:</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Message:</label>
+        <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-dark-brown">Submit</button>
+    </form>
+  </section>
+
+  <!-- Contact Information -->
+  <section>
+    <h2 class="text-sage">Contact Details</h2>
+    <ul>
+      <li>Phone: +264 857853991</li>
+      <li>Email: <a href="mailto:faustinabkt@gmail.com">faustinabkt@gmail.com</a></li>
+      <li>Location: 1000 Brahms Street, Windhoek West, Windhoek, Namibia</li>
+    </ul>
+  </section>
+</div>
+
+<!-- External Scripts for Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
