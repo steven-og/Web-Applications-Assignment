@@ -3,114 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
+    <title>About Us - Livestock Marketplace</title>
     <style>
-        /* General styling */
+        /* Styles for the page */
         body {
             font-family: Arial, sans-serif;
-            background-color: #F3F4F6;
-            margin: 0;
-            padding: 0;
-            color: #333;
+            margin: 20px;
+            background-color: #f4f4f9;
+            position: relative;
         }
 
-        /* Header */
-        h1 {
+        .about-title {
+            background-color: #d4edda;
+            color: #593c15;
+            padding: 10px;
             text-align: center;
-            color: #7C4A31;
-            font-size: 36px;
-            margin-top: 20px;
+            border-radius: 8px;
+            font-weight: bold;
         }
 
-        /* Main container */
-        .about-container {
+        /* Language toggle button style */
+        .language-toggle {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 8px 16px;
+            background-color: #1f5437;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        section {
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        .section-container {
             display: flex;
-            justify-content: center;
-            align-items: start;
-            padding: 20px;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        /* Content section */
-        .about-content {
-            width: 60%;
-            padding-right: 20px;
-        }
-
-        /* Mission, Vision, Contact sections */
-        h2 {
-            color: #1F513F;
-            font-size: 24px;
+            align-items: flex-start;
             margin-top: 20px;
+        }
+
+        .text-content {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .image-content {
+            flex: 0 0 200px;
+        }
+
+        .image-content img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #2c3e50;
         }
 
         p {
             font-size: 16px;
             line-height: 1.6;
         }
-
-        /* Images */
-        .about-images {
-            width: 60%;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .about-images img {
-            width: 80%;
-            height: 100;
-            border-radius: 8px;
-        }
-
-        /* Contact details */
-        .contact-details p {
-            margin: 5px 0;
-        }
-
-        /* Responsive styling */
-        @media (max-width: 768px) {
-            .about-container {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .about-content, .about-images {
-                width: 100%;
-                padding: 0;
-            }
-        }
     </style>
 </head>
 <body>
-    <h1>About Us</h1>
-    <div class="about-container">
-        <!-- Content Section -->
-        <div class="about-content">
-            <h2>Mission</h2>
-            <p>To create a transparent and trusted marketplace that connects livestock farmers and buyers worldwide, promoting ethical and sustainable practices in livestock trading.</p>
+    <button class="language-toggle" onclick="toggleLanguage()">ENG</button>
 
-            <h2>Vision</h2>
-            <p>To be the leading global platform for livestock trading, fostering a community where ethical standards, sustainability, and innovation drive the future of livestock commerce.</p>
+    <header>
+        <h1 class="about-title">About Us</h1>
+    </header>
 
-            <h2>Contact Details</h2>
-            <div class="contact-details">
-                <p><strong>Email:</strong> support@livestockmarketplace.com</p>
-                <p><strong>Phone:</strong> +264 857853991</p>
-                <p><strong>Office Address:</strong> 1000 Brahms Street, Windhoek West, Windhoek</p>
-                <p><strong>Customer Support Hours:</strong></p>
-                <p>Monday – Friday: 9:00 AM – 6:00 PM (CST)</p>
-                <p>Saturday: 10:00 AM – 4:00 PM (CST)</p>
-                <p>Closed on Sundays and Public Holidays</p>
+    <section id="content">
+        <div class="section-container">
+            <div class="text-content">
+                <h2 id="mission-title"></h2>
+                <p id="mission-text"></p>
+            </div>
+            <div class="image-content">
+                <img src="Livestock.webp" alt="Mission Image" id="mission-image">
             </div>
         </div>
 
-        <!-- Image Section -->
-        <div class="about-images">
-            <img src="Livestock.webp" alt="Image of livestock and farmer">
-            <img src="hq720.jpg" alt="Image of farmer with cows">
+        <div class="section-container">
+            <div class="text-content">
+                <h2 id="vision-title"></h2>
+                <p id="vision-text"></p>
+            </div>
+            <div class="image-content">
+                <img src="hq720.jpg" alt="Vision Image" id="vision-image">
+            </div>
         </div>
-    </div>
+
+        <div class="section-container">
+            <div class="text-content">
+                <h2 id="contact-title"></h2>
+                <p id="contact-email"></p>
+                <p id="contact-phone"></p>
+                <p id="contact-address"></p>
+                <p id="contact-hours"></p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Language data
+        const content = {
+            en: {
+                missionTitle: "Mission",
+                missionText: "To create a transparent and trusted marketplace that connects livestock farmers and buyers worldwide, promoting ethical and sustainable practices in livestock trading.",
+                visionTitle: "Vision",
+                visionText: "To be the leading global platform for livestock trading, fostering a community where ethical standards, sustainability, and innovation drive the future of livestock commerce.",
+                contactTitle: "Contact Details",
+                contactEmail: "Email: support@livestockmarketplace.com",
+                contactPhone: "Phone: 061255 244",
+                contactAddress: "Office Address: 1000 Brahms Street, Windhoek West, Windhoek",
+                contactHours: "Customer Support Hours: Monday – Friday: 9:00 AM – 6:00 PM (CST), Saturday: 10:00 AM – 4:00 PM (CST), Closed on Sundays and Public Holidays",
+                missionImage: "Livestock.webp", 
+                visionImage: "hq720.jpg"   
+            },
+            af: {
+                missionTitle: "Missie",
+                missionText: "Om 'n deursigtige en vertroude mark te skep wat veeboere en kopers wêreldwyd verbind en etiese en volhoubare praktyke in veemark verbruik bevorder.",
+                visionTitle: "Visie",
+                visionText: "Om die toonaangewende globale platform vir veemarkverhandeling te wees, 'n gemeenskap te bevorder waar etiese standaarde, volhoubaarheid en innovasie die toekoms van veemarkverhandeling dryf.",
+                contactTitle: "Kontakbesonderhede",
+                contactEmail: "E-pos: support@livestockmarketplace.com",
+                contactPhone: "Telefoon: 061255 244",
+                contactAddress: "Kantoor Adres: 1000 Brahms Strasse, Windhoek West, Windhoek",
+                contactHours: "Kliëntediens Ure: Maandag – Vrydag: 9:00 VM – 6:00 NM (CST), Saterdag: 10:00 VM – 4:00 NM (CST), Gesluit op Sondae en Openbare Vakansiedae",
+                missionImage: "Livestock.webp", 
+                visionImage: "hq720.jpg"   
+            }
+        };
+
+        // Set initial language to English
+        let currentLang = 'en';
+
+        // Toggle between English and Afrikaans
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'af' : 'en';
+            loadContent();
+            document.querySelector('.language-toggle').innerText = currentLang === 'en' ? 'ENG' : 'AFR';
+        }
+
+        // Load content based on current language
+        function loadContent() {
+            document.getElementById("mission-title").innerText = content[currentLang].missionTitle;
+            document.getElementById("mission-text").innerText = content[currentLang].missionText;
+            document.getElementById("vision-title").innerText = content[currentLang].visionTitle;
+            document.getElementById("vision-text").innerText = content[currentLang].visionText;
+            document.getElementById("contact-title").innerText = content[currentLang].contactTitle;
+            document.getElementById("contact-email").innerText = content[currentLang].contactEmail;
+            document.getElementById("contact-phone").innerText = content[currentLang].contactPhone;
+            document.getElementById("contact-address").innerText = content[currentLang].contactAddress;
+            document.getElementById("contact-hours").innerText = content[currentLang].contactHours;
+            document.getElementById("mission-image").src = content[currentLang].missionImage;
+            document.getElementById("vision-image").src = content[currentLang].visionImage;
+        }
+
+        // Load content initially
+        loadContent();
+    </script>
 </body>
 </html>
