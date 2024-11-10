@@ -31,21 +31,29 @@
 h1,h2{
 text-align: center;
 }
-.Categories{
-    width: 80%;
-    margin: auto;
-    text-align: center;
-    padding-top: 100px;
+.Categories-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
+    gap: 20px; /* Space between the products */
+    justify-items: center; /* Center the items horizontally */
+
 }
 .Categorie-col{
-    flex-basis: 31%;
-    border-radius: 10px;
-    margin-bottom: 5%;
-    text-align: left;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 15px;
+    width: 100%; /* Take full width in each grid cell */
+    max-width: 350px; /* Optional: Limit the product card width */
+    text-align: center;
+
 }
 .Categorie-col img{
-    width: 100%;
-    border-radius: 10px;
+    max-width: 100%;
+    border-radius: 5px;
+
 }
 .Categorie-col p{
     padding: 0;

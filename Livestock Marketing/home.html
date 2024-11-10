@@ -7,114 +7,268 @@
     <link rel="stylesheet" href="home.css">
 </head>
 <body>
-    <div class="container">
-        <header class="main-header">
-            <img class="logo-image" src="images/Logo.png" alt="Page logo">
-            <button>Login</button>
-        </header> 
+ 
+        <!-- English version -->
+ <div id="form-en" class="form" lang="en">
+        <div class="container">
+            <header class="main-header">
+                <img class="logo-image" src="images/Logo.png" alt="Page logo">
+                <button>Login</button>
 
-    </div>
-    <div>
-        <section class="categories">
-            <h1><B>Welcome to the Livestock Marketplace</B></h1>
-            <h2>Find the best deals for buying, selling, and trading livestock.</h2>
+                <div class="form-container">
+                    <div class="language-selector">
+                        <label for="language">Select Language:</label>
+                            <select id="language" onchange="toggleLanguage()">
+                                <option value="en">English</option>
+                                <option value="af">Afrikaans</option>
+                            </select>
+                    </div>
+                </div>
+            </header> 
 
+        </div>
+        <div>
+            <section class="categories">
+                <h1><B>Welcome to the Livestock Marketplace</B></h1>
+                <h2>Find the best deals for buying, selling, and trading livestock.</h2>
+
+                <div class="row">
+                    <div class="Categorie-col">
+                        <img src="images/Cow1.jpg" alt="Cows">
+                        <h3>Cattle up for grabs</h3>
+                        <p>Price: N$8000</p>
+                        <button>Buy Now</button>
+                    </div>
+                    <div class="Categorie-col">
+                        <img src="images/Pig1.jpg" alt="Pigs">
+                        <h3>Pig for sale</h3>
+                        <p>Price: N$600</p>
+                        <button>Buy Now</button>
+                    </div>
+                    <div class="Categorie-col">
+                        <img src="images/Sheep1.jpg" alt="Sheep">
+                        <h3>Sheep</h3>
+                        <p>Price: N$1800</p>
+                        <button>Buy Now</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div>
+            <section>
             <div class="row">
                 <div class="Categorie-col">
-                    <img src="images/Cow1.jpg" alt="Cows">
-                    <h3>Cattle up for grabs</h3>
-                    <p>Price: N$8000</p>
+                    <img src="images/Donkey2.jpg" alt="Donkey">
+                    <h3>Donkey For sale</h3>
+                    <p>Price: N$1600</p>
                     <button>Buy Now</button>
                 </div>
                 <div class="Categorie-col">
-                    <img src="images/Pig1.jpg" alt="Pigs">
-                    <h3>Pig for sale</h3>
-                    <p>Price: N$600</p>
+                    <img src="images/Horse1.jpg" alt="Horse">
+                    <h3>Horse For sale</h3>
+                    <p>Price: N$3500</p>
                     <button>Buy Now</button>
                 </div>
                 <div class="Categorie-col">
-                    <img src="images/Sheep1.jpg" alt="Sheep">
-                    <h3>Sheep</h3>
-                    <p>Price: N$1800</p>
+                    <img src="images/Chicken1.jpg" alt="Chicken">
+                    <h3>Chicken for sale</h3>
+                    <p>Price: N$250</p>
                     <button>Buy Now</button>
                 </div>
             </div>
-        </section>
-    </div>
-    <div>
-        <section>
-        <div class="row">
-            <div class="Categorie-col">
-                <img src="images/Donkey2.jpg" alt="Donkey">
-                <h3>Donkey For sale</h3>
-                <p>Price: N$1600</p>
-                <button>Buy Now</button>
-            </div>
-            <div class="Categorie-col">
-                <img src="images/Horse1.jpg" alt="Horse">
-                <h3>Horse For sale</h3>
-                <p>Price: N$3500</p>
-                <button>Buy Now</button>
-            </div>
-            <div class="Categorie-col">
-                <img src="images/Chicken1.jpg" alt="Chicken">
-                <h3>Chicken for sale</h3>
-                <p>Price: N$250</p>
-                <button>Buy Now</button>
-            </div>
+            </section>
         </div>
-        </section>
-    </div>
-    <div>
-        <section>
-        <div class="row">
-            <div class="Categorie-col">
-                <img src="images/Duck1.jpg" alt="Ducks">
-                <h3>Duck For sale</h3>
-                <p>Price: N$200</p>
-                <button>Buy Now</button>
+        <div>
+            <section>
+            <div class="row">
+                <div class="Categorie-col">
+                    <img src="images/Duck1.jpg" alt="Ducks">
+                    <h3>Duck For sale</h3>
+                    <p>Price: N$200</p>
+                    <button>Buy Now</button>
+                </div>
+                <div class="Categorie-col">
+                    <img src="images/Chicken3.jpg"  alt="Chicken and chicks" height="60%">
+                    <h3>Hen and it's chicks Up for grabs</h3>
+                    <p>Price: N$350</p>
+                    <button>Buy Now</button>
+                </div>
+                <div class="Categorie-col">
+                    <img src="images/Goat1.jpg" alt="Goat">
+                    <h3>Breeding goat for sale</h3>
+                    <p>Price: N$3500</p>
+                    <button>Buy Now</button>
+                </div>
             </div>
-            <div class="Categorie-col">
-                <img src="images/Chicken3.jpg"  alt="Chicken and chicks" height="60%">
-                <h3>Hen and it's chicks Up for grabs</h3>
-                <p>Price: N$350</p>
-                <button>Buy Now</button>
-            </div>
-            <div class="Categorie-col">
-                <img src="images/Goat1.jpg" alt="Goat">
-                <h3>Breeding goat for sale</h3>
-                <p>Price: N$3500</p>
-                <button>Buy Now</button>
-            </div>
+            </section>
         </div>
-        </section>
-    </div>
-    <div>
-        <section>
-        <div class="row">
-            <div class="Categorie-col">
-                <img src="images/Horse2.jpg" alt="Horse">
-                <h3>Horse For sale</h3>
-                <p>Price: N$3400</p>
-                <button>Buy Now</button>
+        <div>
+            <section>
+            <div class="row">
+                <div class="Categorie-col">
+                    <img src="images/Horse2.jpg" alt="Horse">
+                    <h3>Horse For sale</h3>
+                    <p>Price: N$3400</p>
+                    <button>Buy Now</button>
+                </div>
+                <div class="Categorie-col">
+                    <img src="images/Pig2.jpg"  alt="Pigs" >
+                    <h3>Pig up for grabs</h3>
+                    <p>Price: N$500</p>
+                    <button>Buy Now</button>
+                </div>
+                <div class="Categorie-col">
+                    <img src="images/Cow2.jpg" alt="Cow">
+                    <h3>Cow for sale</h3>
+                    <p>Price: N$5000</p>
+                    <button>Buy Now</button>
+                </div>
             </div>
-            <div class="Categorie-col">
-                <img src="images/Pig2.jpg"  alt="Pigs" >
-                <h3>Pig up for grabs</h3>
-                <p>Price: N$500</p>
-                <button>Buy Now</button>
-            </div>
-            <div class="Categorie-col">
-                <img src="images/Cow2.jpg" alt="Cow">
-                <h3>Cow for sale</h3>
-                <p>Price: N$5000</p>
-                <button>Buy Now</button>
-            </div>
+            </section>
         </div>
-        </section>
-    </div>
-    <footer class="Hfooter">
-        <p>&copy; 2023 Livestock Marketplace. All rights reserved.</p>
-    </footer>
+
+        <footer class="Hfooter">
+            <p>&copy; 2023 Livestock Marketplace. All rights reserved.</p>
+        </footer>
+</div>
+
+    <!-- Afrikaans Code Translation-->
+    <div id="form-af" class="form" lang="af" style="display: none;">
+     <div class="container">
+            <header class="main-header">
+                <img class="logo-image" src="images/Logo.png" alt="Page logo">
+                <button>Meld Aan</button>
+
+                <div class="form-container">
+                    <div class="language-selector">
+                        <label for="language">Select Language:</label>
+                            <select id="language" onchange="toggleLanguage()">
+                                <option value="en">English</option>
+                                <option value="af">Afrikaans</option>
+                            </select>
+                    </div>
+                </div>
+            </header> 
+        </div>
+        <div>
+            <section class="categories">
+                <h1><b>Welkom by die Veemark</b></h1>
+                <h2>Vind die beste aanbiedinge vir koop, verkoop en ruil van vee.</h2>
+    
+                <div class="row">
+                    <div class="Categorie-col">
+                        <img src="images/Cow1.jpg" alt="Beeste">
+                        <h3>Beeste beskikbaar</h3>
+                        <p>Prys: N$8000</p>
+                        <button>Koop Nou</button>
+                    </div>
+                    <div class="Categorie-col">
+                        <img src="images/Pig1.jpg" alt="Varke">
+                        <h3>Vark te koop</h3>
+                        <p>Prys: N$600</p>
+                        <button>Koop Nou</button>
+                    </div>
+                    <div class="Categorie-col">
+                        <img src="images/Sheep1.jpg" alt="Skape">
+                        <h3>Skape</h3>
+                        <p>Prys: N$1800</p>
+                        <button>Koop Nou</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div>
+            <section>
+            <div class="row">
+                <div class="Categorie-col">
+                    <img src="images/Donkey2.jpg" alt="Donkie">
+                    <h3>Donkie te koop</h3>
+                    <p>Prys: N$1600</p>
+                    <button>Koop Nou</button>
+                </div>
+                <div class="Categorie-col">
+                    <img src="images/Horse1.jpg" alt="Perd">
+                    <h3>Perd te koop</h3>
+                    <p>Prys: N$3500</p>
+                    <button>Koop Nou</button>
+                </div>
+                <div class="Categorie-col">
+                    <img src="images/Chicken1.jpg" alt="Hoender">
+                    <h3>Hoender te koop</h3>
+                    <p>Prys: N$250</p>
+                    <button>Koop Nou</button>
+                </div>
+            </div>
+            </section>
+        </div>
+        <div>
+            <section>
+            <div class="row">
+                <div class="Categorie-col">
+                    <img src="images/Duck1.jpg" alt="Eende">
+                    <h3>Eend te koop</h3>
+                    <p>Prys: N$200</p>
+                    <button>Koop Nou</button>
+                </div>
+                <div class="Categorie-col">
+                    <img src="images/Chicken3.jpg"  alt="Hoender en kuikens" height="60%">
+                    <h3>Hen en kuikens beskikbaar</h3>
+                    <p>Prys: N$350</p>
+                    <button>Koop Nou</button>
+                </div>
+                <div class="Categorie-col">
+                    <img src="images/Goat1.jpg" alt="Bok">
+                    <h3>Teelbokkie te koop</h3>
+                    <p>Prys: N$3500</p>
+                    <button>Koop Nou</button>
+                </div>
+            </div>
+            </section>
+        </div>
+        <div>
+            <section>
+            <div class="row">
+                <div class="Categorie-col">
+                    <img src="images/Horse2.jpg" alt="Perd">
+                    <h3>Perd te koop</h3>
+                    <p>Prys: N$3400</p>
+                    <button>Koop Nou</button>
+                </div>
+                <div class="Categorie-col">
+                    <img src="images/Pig2.jpg" alt="Varke">
+                    <h3>Vark beskikbaar</h3>
+                    <p>Prys: N$500</p>
+                    <button>Koop Nou</button>
+                </div>
+                <div class="Categorie-col">
+                    <img src="images/Cow2.jpg" alt="Kooi">
+                    <h3>Kooi te koop</h3>
+                    <p>Prys: N$5000</p>
+                    <button>Koop Nou</button>
+                </div>
+            </div>
+            </section>
+        </div>
+
+        <footer class="Hfooter">
+            <p>&copy; 2023 Veemark. Alle regte voorbehou.</p>
+        </footer>
+ </div>
+        <!-- switch languages -->
+        <script>
+            function toggleLanguage() {
+                const selectedLanguage = document.getElementById('language').value;
+                const formEn = document.getElementById('form-en');
+                const formAf = document.getElementById('form-af');
+    
+                if (selectedLanguage === 'en') {
+                    formEn.style.display = 'block';
+                    formAf.style.display = 'none';
+                } else {
+                    formEn.style.display = 'none';
+                    formAf.style.display = 'block';
+                }
+            }
+        </script>
 </body>
 </html>
