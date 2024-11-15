@@ -1,0 +1,239 @@
+<?php
+session_start();
+
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit();
+}
+
+// Database connection
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "marketplacedb";
+
+try {
+    $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch(PDOException $e) {
+    die("Connection failed: " . $e->getMessage());
+}
+
+// Get conversation partner's ID from URL
+$partner_id = isset($_GET['user_id']) ? (int)$_GET['user_id'] : 0;
+
+// Fetch partner's username
+$stmt = $pdo->prepare("SELECT username FROM users WHERE user_id = ?");
+$stmt->execute([$partner_id]);
+$partner = $stmt->fetch(PDO::FETCH_ASSOC);
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livestock Chat Page</title>
+    <style>
+        /* Previous styles remain the same until .message class */
+        
+        .message {             
+            margin: 10px 0;             
+            padding: 10px;             
+            border-radius: 5px;             
+            background-color: #d2b48c;
+            position: relative;
+        }          
+        
+        .message.you {             
+            background-color: #e0c097;             
+            text-align: right;         
+        }     
+
+        .message-time {
+            font-size: 0.8em;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .message.received {
+            background-color: #f0e6d9;
+            text-align: left;
+        }
+
+        .username {
+            font-weight: bold;
+            color: #8b4513;
+            margin-bottom: 5px;
+        }
+
+        .message-content {
+            word-wrap: break-word;
+        }
+
+        /* Rest of the previous styles remain the same */
+    </style>
+</head>
+<body>
+    <!-- Previous navbar remains the same -->
+    <div class="navbar">
+        <a href="index.php">Home</a>
+        <a href="login.php">Login</a>
+        <a href="productListing.php">Product Listings</a>
+        <a href="chat.php">Chat</a>
+        <a href="Post_item.php">Post an Item</a>
+        <a href="userprofile.php">User Profile</a>
+        <a href="aboutus.php">About Us</a>
+    </div>
+
+    <div class="chat-container">
+        <div class="chat-header">
+            <span id="chatTitle">Chat with <?php echo htmlspecialchars($partner['username'] ?? 'User'); ?></span>
+            <select id="languageSelect" onchange="toggleLanguage()">
+                <option value="en">English</option>
+                <option value="af">Afrikaans</option>
+            </select>
+        </div>
+
+        <div class="chat-messages" id="chatMessages"></div>
+
+        <div class="chat-input-area">
+            <input type="text" id="chatInput" class="chat-input" placeholder="Type your message..." autocomplete="off">
+            <button class="send-button" id="sendButton">Send</button>
+        </div>
+
+        <div class="quick-buttons" id="quickButtons">
+            <button onclick="quickResponse('Is this available?')">Is this available?</button>
+            <button onclick="quickResponse('Where are you?')">Where are you?</button>
+            <button onclick="quickResponse('Any room for negotiations?')">Any room for negotiations?</button>
+        </div>
+    </div>
+
+    <script>
+        const chatBox = document.getElementById('chatMessages');
+        const messageInput = document.getElementById('chatInput');
+        const sendButton = document.getElementById('sendButton');
+        const currentUserId = <?php echo $_SESSION['user_id']; ?>;
+        const partnerId = <?php echo $partner_id; ?>;
+        let lastMessageId = 0;
+
+        const translations = {
+            en: {
+                title: "Chat with <?php echo htmlspecialchars($partner['username'] ?? 'User'); ?>",
+                placeholder: "Type your message...",
+                sendButton: "Send",
+                quickButtons: ["Is this available?", "Where are you?", "Any room for negotiations?"]
+            },
+            af: {
+                title: "Gesels met <?php echo htmlspecialchars($partner['username'] ?? 'Gebruiker'); ?>",
+                placeholder: "Tik jou boodskap...",
+                sendButton: "Stuur",
+                quickButtons: ["Is dit beskikbaar?", "Waar is jy?", "Is daar ruimte vir onderhandelinge?"]
+            }
+        };
+
+        // Load initial messages
+        loadMessages();
+
+        // Poll for new messages every 3 seconds
+        setInterval(loadMessages, 3000);
+
+        function loadMessages() {
+            fetch(`get_messages.php?partner_id=${partnerId}&last_id=${lastMessageId}`)
+                .then(response => response.json())
+                .then(messages => {
+                    messages.forEach(message => {
+                        if (message.message_id > lastMessageId) {
+                            displayMessage(
+                                message.content,
+                                message.user_id == currentUserId ? 'you' : 'received',
+                                message.sent_at,
+                                message.username
+                            );
+                            lastMessageId = message.message_id;
+                        }
+                    });
+                })
+                .catch(error => console.error('Error loading messages:', error));
+        }
+
+        function sendMessage() {
+            const messageText = messageInput.value.trim();
+            if (messageText) {
+                const formData = new FormData();
+                formData.append('partner_id', partnerId);
+                formData.append('message', messageText);
+
+                fetch('send_message.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        messageInput.value = '';
+                        loadMessages();
+                    } else {
+                        console.error('Error sending message:', data.error);
+                    }
+                })
+                .catch(error => console.error('Error sending message:', error));
+            }
+        }
+
+        function displayMessage(text, className = '', timestamp = '', username = '') {
+            const message = document.createElement('div');
+            message.classList.add('message', className);
+            
+            const usernameDiv = document.createElement('div');
+            usernameDiv.classList.add('username');
+            usernameDiv.textContent = username;
+            message.appendChild(usernameDiv);
+            
+            const content = document.createElement('div');
+            content.classList.add('message-content');
+            content.textContent = text;
+            message.appendChild(content);
+            
+            if (timestamp) {
+                const time = document.createElement('div');
+                time.classList.add('message-time');
+                time.textContent = new Date(timestamp).toLocaleTimeString();
+                message.appendChild(time);
+            }
+            
+            chatBox.appendChild(message);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        // Previous functions (quickResponse and toggleLanguage) remain the same
+        function quickResponse(text) {
+            messageInput.value = text;
+            sendMessage();
+        }
+
+        function toggleLanguage() {
+            const lang = languageSelect.value;
+            const translation = translations[lang];
+            
+            document.getElementById('chatTitle').textContent = translation.title;
+            messageInput.placeholder = translation.placeholder;
+            sendButton.textContent = translation.sendButton;
+            
+            const quickButtonsContainer = document.getElementById('quickButtons');
+            Array.from(quickButtonsContainer.children).forEach((button, index) => {
+                button.textContent = translation.quickButtons[index];
+            });
+        }
+
+        messageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        sendButton.addEventListener('click', sendMessage);
+    </script>
+</body>
+</html>
